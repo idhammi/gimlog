@@ -21,5 +21,18 @@ struct Game: Codable, Identifiable {
         case backgroundImage = "background_image"
         case description = "description_raw"
     }
+    
+    func getYearReleased() -> String {
+        return String(released.prefix(4))
+    }
+    
+    func getReleasedFormatted() -> String {
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "yyyy-MM-dd"
+        let date = dateFormater.date(from: released)
+        dateFormater.dateFormat = "MMM dd, yyyy"
+        let timeStr = dateFormater.string(from: date!)
+        return timeStr
+    }
 }
 

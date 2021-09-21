@@ -15,6 +15,8 @@ struct GameDetail: View {
     
     var body: some View {
         ZStack {
+            Color(.orange)
+                .ignoresSafeArea()
             if fetcher.loading {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())
@@ -23,30 +25,36 @@ struct GameDetail: View {
             ScrollView {
                 if let game = fetcher.gameDetail {
                     VStack {
+                        WebImage(url: URL(string: game.backgroundImage))
+                            .resizable()
+                            .transition(.fade(duration: 0.5))
+                            .aspectRatio(contentMode: .fit)
+                        
                         Spacer(minLength: 20)
                         
                         Text(game.name)
                             .font(.system(size: 25))
                             .bold()
                         
-                        Spacer(minLength: 80)
+                        Spacer(minLength: 4)
                         
-                        WebImage(url: URL(string: game.backgroundImage))
-                            .resizable()
-                            .transition(.fade(duration: 0.5))
-                            .scaledToFit()
-                            .frame(width: 400, height: 340, alignment: .center)
+                        Text("Released on: " + game.getReleasedFormatted())
+                            .foregroundColor(.white)
+                            .font(.system(size: 16))
+                            .bold()
                         
                         Spacer(minLength: 20)
                         
                         Text(game.description ?? "")
                             .font(.system(size: 16))
+                            .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))
                     }
                 }
-            }.padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))
+            }
         }.onAppear {
             fetcher.getGameDetail(id: gameId)
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

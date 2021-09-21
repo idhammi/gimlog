@@ -10,21 +10,27 @@ import SwiftUI
 struct GameList: View {
     
     @ObservedObject var fetcher = ListFetcher()
+    var columns = [
+        GridItem(.flexible(), spacing: 0),
+        GridItem(.flexible(), spacing: 0)
+    ]
     
     var body: some View {
         ZStack {
-            List(fetcher.gamesList) { game in
-                NavigationLink(destination: GameDetail(gameId: game.id)) {
-                    GameRow(game: game)
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: 0) {
+                    ForEach(fetcher.gamesList) { game in
+                        NavigationLink(destination: GameDetail(gameId: game.id)) {
+                            GameItem(game: game)
+                        }
+                    }
                 }
             }
-            
             if fetcher.loading {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())
                     .scaleEffect(2)
             }
         }
-        .navigationBarTitle(Text("Gimlog"), displayMode: .inline)
     }
 }

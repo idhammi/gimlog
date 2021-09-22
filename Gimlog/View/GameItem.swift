@@ -1,5 +1,5 @@
 //
-//  GameRow.swift
+//  GameItem.swift
 //  Gimlog
 //
 //  Created by Idham on 16/09/21.
@@ -17,23 +17,21 @@ struct GameItem: View {
                 .resizable()
                 .transition(.fade(duration: 0.5))
                 .scaledToFill()
-                .frame(width:190, height: 200, alignment: .center)
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .aspectRatio(0.85, contentMode: .fill)
             
-            HStack {
-                VStack(alignment: .center) {
-                    Text(game.name)
-                        .foregroundColor(.black)
-                        .font(.system(size: 15))
-                        .lineLimit(1)
-                    
-                    Text(game.getYearReleased())
-                        .foregroundColor(.orange)
-                        .font(.system(size: 14))
-                        .lineLimit(1)
-                }
-                .layoutPriority(100)
+            VStack(alignment: .center) {
+                Text(game.name)
+                    .foregroundColor(.black)
+                    .font(.system(size: 15))
+                    .lineLimit(1)
+                
+                Text(game.getYearReleased())
+                    .foregroundColor(.orange)
+                    .font(.system(size: 14))
+                    .lineLimit(1)
             }
-            .padding(EdgeInsets(top: 8, leading: 8, bottom: 16, trailing: 8))
+            .padding(EdgeInsets(top: 8, leading: 8, bottom: 12, trailing: 8))
             
         }
         .cornerRadius(10)

@@ -28,6 +28,7 @@ class ListFetcher: ObservableObject {
                 }
             } catch {
                 print(error.localizedDescription)
+                self.loading = false
             }
         }
     }

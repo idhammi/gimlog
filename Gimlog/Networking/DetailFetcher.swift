@@ -13,9 +13,9 @@ class DetailFetcher: ObservableObject {
     @Published var gameDetail: Game?
     @Published var loading = false
     
-    func getGameDetail(id: Int) {
+    func getGameDetail(gameId: Int) {
         self.loading = true
-        ApiRepository.shared.getGameDetail(with: .games, gameId: String(id)) { (data, error) in
+        ApiRepository.shared.getGameDetail(with: .games, gameId: String(gameId)) { (data, error) in
             do {
                 let res = try JSONDecoder().decode(Game.self, from: data!)
                 DispatchQueue.main.async {
@@ -24,6 +24,7 @@ class DetailFetcher: ObservableObject {
                 }
             } catch {
                 print(error.localizedDescription)
+                self.loading = false
             }
         }
     }

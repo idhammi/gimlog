@@ -17,15 +17,22 @@ struct GameList: View {
     
     var body: some View {
         ZStack {
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 0) {
-                    ForEach(fetcher.gamesList) { game in
-                        NavigationLink(destination: GameDetail(gameId: game.id)) {
-                            GameItem(game: game)
+            if fetcher.gamesList.count > 0 {
+                ScrollView {
+                    LazyVGrid(columns: columns) {
+                        ForEach(fetcher.gamesList) { game in
+                            NavigationLink(destination: GameDetail(gameId: game.id)) {
+                                GameItem(game: game)
+                            }
                         }
                     }
                 }
+            } else {
+                if !fetcher.loading {
+                    Text("Data not found")
+                }
             }
+            
             if fetcher.loading {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())

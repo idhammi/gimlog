@@ -27,7 +27,10 @@ struct ContentView: View {
                     }
             }
         }
-        .navigationAppearance(backgroundColor: .orange, foregroundColor: .systemBackground, tintColor: .systemBackground, hideSeparator: true)
+        .navigationAppearance(
+            backgroundColor: .orange, foregroundColor: .systemBackground,
+            tintColor: .systemBackground, hideSeparator: true
+        )
     }
 }
 

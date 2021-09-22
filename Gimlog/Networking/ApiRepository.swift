@@ -35,8 +35,9 @@ struct ApiRepository {
     func getGameDetail(with resources: ApiResources, gameId: String, completion: @escaping(Data?, Error?) -> Void) {
         fetch(with: resources, parameters: nil, path: gameId, completion: completion)
     }
- 
-    private func fetch(with resources: ApiResources, parameters: [String: String]?, path: String?, completion: @escaping(Data?, Error?) -> Void) {
+    
+    private func fetch(with resources: ApiResources, parameters: [String: String]?, path: String?,
+                       completion: @escaping(Data?, Error?) -> Void) {
         var urlComponents = self.urlComponents
         
         if let appendPath = path {
@@ -45,18 +46,19 @@ struct ApiRepository {
             urlComponents.path = "/api/\(resources)"
         }
         
-        urlComponents.setQueryItems(with: ["key" : apiKey])
+        urlComponents.setQueryItems(with: ["key": apiKey])
         if let params = parameters {urlComponents.setQueryItems(with: params)}
-    
+        
         guard let url = urlComponents.url else {
             completion(nil, NSError(domain: "", code: 100, userInfo: nil))
             return
         }
+        
         urlSession.dataTask(with: url) { (data, _, error) in
             completion(data, error)
         }.resume()
     }
-
+    
 }
 
 extension URLComponents {

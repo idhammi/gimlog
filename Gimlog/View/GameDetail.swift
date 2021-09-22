@@ -17,13 +17,15 @@ struct GameDetail: View {
         ZStack {
             Color(.orange)
                 .ignoresSafeArea()
+            
             if fetcher.loading {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())
                     .scaleEffect(2)
             }
-            ScrollView {
-                if let game = fetcher.gameDetail {
+            
+            if let game = fetcher.gameDetail {
+                ScrollView {
                     VStack {
                         WebImage(url: URL(string: game.backgroundImage))
                             .resizable()
@@ -50,15 +52,19 @@ struct GameDetail: View {
                             .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))
                     }
                 }
+            } else {
+                if !fetcher.loading {
+                    Text("Data not found")
+                }
             }
         }.onAppear {
-            fetcher.getGameDetail(id: gameId)
+            fetcher.getGameDetail(gameId: gameId)
         }
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-struct GameDetail_Previews: PreviewProvider {    
+struct GameDetail_Previews: PreviewProvider {
     static var previews: some View {
         GameDetail(gameId: 3498)
     }

@@ -12,7 +12,7 @@ struct Game: Codable, Identifiable {
     let name: String
     let released: String
     let backgroundImage: String
-    var description: String? = nil
+    var description: String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -35,4 +35,3 @@ struct Game: Codable, Identifiable {
         return timeStr
     }
 }
-

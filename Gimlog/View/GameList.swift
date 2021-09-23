@@ -30,6 +30,7 @@ struct GameList: View {
             } else {
                 if !fetcher.loading {
                     Text("Data not found")
+                        .foregroundColor(Color("BlackSoft"))
                 }
             }
             

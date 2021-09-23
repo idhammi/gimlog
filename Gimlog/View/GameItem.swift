@@ -12,7 +12,7 @@ struct GameItem: View {
     var game: Game
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             WebImage(url: URL(string: game.backgroundImage))
                 .resizable()
                 .transition(.fade(duration: 0.5))
@@ -20,18 +20,18 @@ struct GameItem: View {
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .aspectRatio(0.85, contentMode: .fill)
             
-            VStack(alignment: .center) {
+            VStack(alignment: .leading) {
                 Text(game.name)
-                    .foregroundColor(.black)
-                    .font(.system(size: 15))
-                    .lineLimit(1)
-                
-                Text(game.getYearReleased())
-                    .foregroundColor(.orange)
+                    .foregroundColor(Color("BlackSoft"))
                     .font(.system(size: 14))
                     .lineLimit(1)
+                
+                Text("\(game.getYearReleased())  |  \(String(game.rating)) ★")
+                    .foregroundColor(.orange)
+                    .font(.system(size: 12))
+                    .lineLimit(1)
             }
-            .padding(EdgeInsets(top: 8, leading: 8, bottom: 12, trailing: 8))
+            .padding(EdgeInsets(top: 6, leading: 8, bottom: 12, trailing: 8))
             
         }
         .cornerRadius(10)
@@ -47,10 +47,11 @@ struct GameRow_Previews: PreviewProvider {
         id: 1,
         name: "Red Dead Redemption 2",
         released: "2018-10-26",
-        backgroundImage: "https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg"
+        backgroundImage: "https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg",
+        rating: 4.5
     )
     
     static var previews: some View {
-        GameItem(game: game).previewLayout(.fixed(width: 350, height: 500))
+        GameItem(game: game).previewLayout(.fixed(width: 350, height: 200))
     }
 }

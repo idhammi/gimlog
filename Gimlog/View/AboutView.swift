@@ -16,6 +16,7 @@ struct AboutView: View {
                     .ignoresSafeArea()
                 VStack {
                     Text("Created by")
+                        .foregroundColor(Color("BlackSoft"))
                         .padding(.top, 100)
                     
                     Image("idham")
@@ -27,10 +28,12 @@ struct AboutView: View {
                         .padding()
                     
                     Text("Idham M Irfani")
+                        .foregroundColor(Color("BlackSoft"))
                         .font(.system(size: 18))
                         .bold()
                     
                     Text("idham.m.irfani@gmail.com")
+                        .foregroundColor(Color("BlackSoft"))
                         .padding(.top, 2)
                 }
             }

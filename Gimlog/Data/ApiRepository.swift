@@ -36,7 +36,8 @@ struct ApiRepository {
         fetch(with: resources, parameters: nil, path: gameId, completion: completion)
     }
     
-    private func fetch(with resources: ApiResources, parameters: [String: String]?, path: String?,
+    private func fetch(with resources: ApiResources,
+                       parameters: [String: String]?, path: String?,
                        completion: @escaping(Data?, Error?) -> Void) {
         var urlComponents = self.urlComponents
         

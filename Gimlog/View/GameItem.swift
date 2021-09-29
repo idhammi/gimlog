@@ -9,11 +9,11 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct GameItem: View {
-    var game: Game
+    var game: GameModel
     
     var body: some View {
         VStack(alignment: .leading) {
-            WebImage(url: URL(string: game.backgroundImage))
+            WebImage(url: URL(string: game.backgroundImage ?? ""))
                 .resizable()
                 .transition(.fade(duration: 0.5))
                 .scaledToFill()
@@ -21,12 +21,12 @@ struct GameItem: View {
                 .aspectRatio(0.85, contentMode: .fill)
             
             VStack(alignment: .leading) {
-                Text(game.name)
+                Text(game.name ?? "")
                     .foregroundColor(Color("BlackSoft"))
                     .font(.system(size: 14))
                     .lineLimit(1)
                 
-                Text("\(game.getYearReleased())  |  \(String(game.rating)) ★")
+                Text("\(game.getYearReleased())  |  \(game.getRatingString()) ★")
                     .foregroundColor(.orange)
                     .font(.system(size: 12))
                     .lineLimit(1)
@@ -43,7 +43,7 @@ struct GameItem: View {
 }
 
 struct GameRow_Previews: PreviewProvider {
-    static var game = Game(
+    static var game = GameModel(
         id: 1,
         name: "Red Dead Redemption 2",
         released: "2018-10-26",

@@ -7,34 +7,39 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import AlertToast
 
 struct GameDetail: View {
     
     var gameId: Int
-    @ObservedObject var fetcher = DetailFetcher()
+    
+    @ObservedObject var vm = DetailViewModel()
+    
+    @State private var showToastInserted = false
+    @State private var showToastRemoved = false
     
     var body: some View {
         ZStack {
             Color(.orange)
                 .ignoresSafeArea()
             
-            if fetcher.loading {
+            if vm.loading {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())
                     .scaleEffect(2)
             }
             
-            if let game = fetcher.gameDetail {
+            if let game = vm.gameDetail {
                 ScrollView {
                     VStack {
-                        WebImage(url: URL(string: game.backgroundImage))
+                        WebImage(url: URL(string: game.backgroundImage ?? ""))
                             .resizable()
                             .transition(.fade(duration: 0.5))
                             .aspectRatio(contentMode: .fit)
                         
                         Spacer(minLength: 20)
                         
-                        Text(game.name)
+                        Text(game.name ?? "")
                             .foregroundColor(Color("BlackSoft"))
                             .font(.system(size: 24))
                             .bold()
@@ -63,7 +68,7 @@ struct GameDetail: View {
                                     .bold()
                                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                 
-                                Text("\(String(game.rating)) ★")
+                                Text("\(game.getRatingString()) ★")
                                     .foregroundColor(Color("BlackSoft"))
                                     .font(.system(size: 16))
                                     .bold()
@@ -120,15 +125,45 @@ struct GameDetail: View {
                     }
                 }
             } else {
-                if !fetcher.loading {
+                if !vm.loading {
                     Text("Data not found")
                         .foregroundColor(Color("BlackSoft"))
                 }
             }
-        }.onAppear {
-            fetcher.getGameDetail(gameId: gameId)
         }
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarItems(trailing: HStack {
+            Button {
+                if !vm.isFavorite {
+                    if let game = vm.gameDetail {
+                        vm.setGameAsFavorite(item: game) {
+                            showToastInserted.toggle()
+                        }
+                    }
+                } else {
+                    vm.removeGameFromFavorite(gameId: gameId) {
+                        showToastRemoved.toggle()
+                    }
+                }
+            } label: {
+                if vm.isFavorite {
+                    Image(systemName: "heart.fill").font(.title2)
+                } else {
+                    Image(systemName: "heart").font(.title2)
+                }
+            }
+        })
+        .onAppear {
+            vm.getGameDetail(gameId: gameId)
+        }
+        .toast(isPresenting: $showToastInserted, duration: 1) {
+            AlertToast(type: .complete(Color.green), title: "Added to favorites!")
+        }
+        .toast(isPresenting: $showToastRemoved, duration: 1) {
+            AlertToast(displayMode: .banner(.slide),
+                       type: .systemImage("info.circle", Color.gray),
+                       title: "Removed from favorites")
+        }
     }
 }
 

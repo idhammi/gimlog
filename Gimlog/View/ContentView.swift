@@ -9,23 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var showNavView = false
     @State private var showModalView = false
     
     var body: some View {
         NavigationView {
-            ZStack {
-                GameList()
-                    .navigationBarTitle(Text("Gimlog"))
-                    .navigationBarItems(trailing: Button {
-                        showModalView = true
-                    } label: {
+            GameList()
+                .navigationBarItems(trailing: HStack {
+                    Button {} label: {
+                        NavigationLink(destination: GameList(isFavorite: true)) {
+                            Image(systemName: "heart.fill").font(.title2)
+                        }
+                    }
+                    
+                    Button {showModalView = true} label: {
                         Image(systemName: "info.circle.fill").font(.title2)
-                    })
+                    }
                     .sheet(isPresented: $showModalView) {
                         AboutView()
                     }
-            }
+                })
         }
         .navigationAppearance(
             backgroundColor: .orange, foregroundColor: .systemBackground,

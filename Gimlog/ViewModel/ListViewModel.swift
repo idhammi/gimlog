@@ -6,15 +6,20 @@
 //
 
 import Foundation
-import SwiftUI
 
-class ListFetcher: ObservableObject {
+class ListViewModel: ObservableObject {
     
-    @Published var gamesList = [Game]()
+    @Published var gamesList = [GameModel]()
     @Published var loading = false
     
-    init() {
-        getGamesList()
+    private lazy var provider: GameProvider = { return GameProvider() }()
+    
+    func getData(isFavorite: Bool) {
+        if isFavorite {
+            getGamesListFavorite()
+        } else {
+            getGamesList()
+        }
     }
     
     func getGamesList() {
@@ -28,6 +33,16 @@ class ListFetcher: ObservableObject {
                 }
             } catch {
                 print(error.localizedDescription)
+                self.loading = false
+            }
+        }
+    }
+    
+    func getGamesListFavorite() {
+        self.loading = true
+        self.provider.getAllGame { result in
+            DispatchQueue.main.async {
+                self.gamesList = result
                 self.loading = false
             }
         }

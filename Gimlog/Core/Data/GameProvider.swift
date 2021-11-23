@@ -33,54 +33,54 @@ class GameProvider {
         return taskContext
     }
     
-    func getAllGame(completion: @escaping(_ games: [GameModel]) -> Void) {
-        let taskContext = newTaskContext()
-        taskContext.perform {
-            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Game")
-            do {
-                let results = try taskContext.fetch(fetchRequest)
-                var games: [GameModel] = []
-                for result in results {
-                    let member = GameModel(
-                        id: result.value(forKeyPath: "id") as? Int,
-                        name: result.value(forKeyPath: "name") as? String,
-                        released: result.value(forKeyPath: "released") as? String,
-                        backgroundImage: result.value(forKeyPath: "backgroundImage") as? String,
-                        rating: result.value(forKeyPath: "rating") as? Float
-                    )
-                    
-                    games.append(member)
-                }
-                completion(games)
-            } catch let error as NSError {
-                print("Could not fetch. \(error), \(error.userInfo)")
-            }
-        }
-    }
+//    func getAllGame(completion: @escaping(_ games: [GameModel]) -> Void) {
+//        let taskContext = newTaskContext()
+//        taskContext.perform {
+//            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Game")
+//            do {
+//                let results = try taskContext.fetch(fetchRequest)
+//                var games: [GameModel] = []
+//                for result in results {
+//                    let member = GameModel(
+//                        id: result.value(forKeyPath: "id") as? Int,
+//                        name: result.value(forKeyPath: "name") as? String,
+//                        released: result.value(forKeyPath: "released") as? String,
+//                        backgroundImage: result.value(forKeyPath: "backgroundImage") as? String,
+//                        rating: result.value(forKeyPath: "rating") as? Float
+//                    )
+//
+//                    games.append(member)
+//                }
+//                completion(games)
+//            } catch let error as NSError {
+//                print("Could not fetch. \(error), \(error.userInfo)")
+//            }
+//        }
+//    }
     
-    func getGame(_ id: Int, completion: @escaping(_ game: GameModel) -> Void) {
-        let taskContext = newTaskContext()
-        taskContext.perform {
-            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Game")
-            fetchRequest.fetchLimit = 1
-            fetchRequest.predicate = NSPredicate(format: "id == \(id)")
-            do {
-                if let result = try taskContext.fetch(fetchRequest).first {
-                    let game = GameModel(
-                        id: result.value(forKeyPath: "id") as? Int,
-                        name: result.value(forKeyPath: "name") as? String,
-                        released: result.value(forKeyPath: "released") as? String,
-                        backgroundImage: result.value(forKeyPath: "backgroundImage") as? String,
-                        rating: result.value(forKeyPath: "rating") as? Float
-                    )
-                    
-                    completion(game)
-                }
-            } catch let error as NSError {
-                print("Could not fetch. \(error), \(error.userInfo)")
-            }
-        }
-    }
+//    func getGame(_ id: Int, completion: @escaping(_ game: GameModel) -> Void) {
+//        let taskContext = newTaskContext()
+//        taskContext.perform {
+//            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Game")
+//            fetchRequest.fetchLimit = 1
+//            fetchRequest.predicate = NSPredicate(format: "id == \(id)")
+//            do {
+//                if let result = try taskContext.fetch(fetchRequest).first {
+//                    let game = GameModel(
+//                        id: result.value(forKeyPath: "id") as? Int,
+//                        name: result.value(forKeyPath: "name") as? String,
+//                        released: result.value(forKeyPath: "released") as? String,
+//                        backgroundImage: result.value(forKeyPath: "backgroundImage") as? String,
+//                        rating: result.value(forKeyPath: "rating") as? Float
+//                    )
+//
+//                    completion(game)
+//                }
+//            } catch let error as NSError {
+//                print("Could not fetch. \(error), \(error.userInfo)")
+//            }
+//        }
+//    }
     
     func insertGame(_ item: GameModel, completion: @escaping() -> Void) {
         let taskContext = newTaskContext()

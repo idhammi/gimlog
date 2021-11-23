@@ -19,18 +19,18 @@ class DetailViewModel: ObservableObject {
         checkGameStatus(gameId: gameId)
         
         self.loading = true
-        ApiRepository.shared.getGameDetail(with: .games, gameId: String(gameId)) { (data, error) in
-            do {
-                let res = try JSONDecoder().decode(GameModel.self, from: data!)
-                DispatchQueue.main.async {
-                    self.gameDetail = res
-                    self.loading = false
-                }
-            } catch {
-                print(error.localizedDescription)
-                self.loading = false
-            }
-        }
+//        ApiRepository.shared.getGameDetail(with: .games, gameId: String(gameId)) { (data, error) in
+//            do {
+//                let res = try JSONDecoder().decode(GameModel.self, from: data!)
+//                DispatchQueue.main.async {
+//                    self.gameDetail = res
+//                    self.loading = false
+//                }
+//            } catch {
+//                print(error.localizedDescription)
+//                self.loading = false
+//            }
+//        }
     }
     
     func setGameAsFavorite(item: GameModel, completion: @escaping() -> Void) {

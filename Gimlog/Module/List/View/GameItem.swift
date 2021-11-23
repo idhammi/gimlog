@@ -48,7 +48,8 @@ struct GameRow_Previews: PreviewProvider {
         name: "Red Dead Redemption 2",
         released: "2018-10-26",
         backgroundImage: "https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg",
-        rating: 4.5
+        rating: 4.5,
+        description: "Lorem Ipsum"
     )
     
     static var previews: some View {

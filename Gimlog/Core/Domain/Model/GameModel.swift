@@ -7,26 +7,20 @@
 
 import Foundation
 
-struct GameModel: Codable, Identifiable {
-    var id: Int?
-    var name: String?
-    var released: String?
-    var backgroundImage: String?
-    var rating: Float?
+struct GameModel: Equatable, Identifiable {
+    
+    static func == (lhs: GameModel, rhs: GameModel) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    let id: Int
+    let name: String?
+    let released: String?
+    let backgroundImage: String?
+    let rating: Float?
     var description: String?
     var developers: [DeveloperModel]?
     var publishers: [PublisherModel]?
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case name
-        case released
-        case backgroundImage = "background_image"
-        case rating
-        case description = "description_raw"
-        case developers
-        case publishers
-    }
     
     func getRatingString() -> String {
         if let rat = rating {
@@ -77,12 +71,12 @@ struct GameModel: Codable, Identifiable {
     
 }
 
-struct DeveloperModel: Codable {
-    var id: Int?
-    var name: String?
+struct DeveloperModel: Equatable, Identifiable {
+    let id: Int
+    let name: String?
 }
 
-struct PublisherModel: Codable {
-    var id: Int?
-    var name: String?
+struct PublisherModel: Equatable, Identifiable {
+    let id: Int
+    let name: String?
 }

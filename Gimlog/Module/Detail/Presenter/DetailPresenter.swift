@@ -83,6 +83,7 @@ class DetailPresenter: ObservableObject {
                     break
                 }
             }, receiveValue: { isFavorite in
+                print("isFavorite \(isFavorite)")
                 self.isFavorite = isFavorite
             })
             .store(in: &cancellables)

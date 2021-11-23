@@ -71,7 +71,6 @@ extension LocaleDataSource: LocaleDataSourceProtocol {
             if let realm = self.realm {
                 do {
                     let object = realm.objects(GameEntity.self).filter("id = %@", id).first
-                    
                     try realm.write {
                         if let obj = object {
                             realm.delete(obj)
@@ -94,6 +93,8 @@ extension LocaleDataSource: LocaleDataSourceProtocol {
                     let object = realm.objects(GameEntity.self).filter("id = %@", id).first
                     if object != nil {
                         completion(.success(true))
+                    } else {
+                        completion(.success(false))
                     }
                 }
             } else {

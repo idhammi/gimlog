@@ -12,14 +12,28 @@ struct HomeView: View {
     @ObservedObject var presenter: HomePresenter
     
     @State private var showModalView = false
+    @State private var searchText = ""
     
     var columns = [
         GridItem(.flexible(), spacing: 0),
         GridItem(.flexible(), spacing: 0)
     ]
     
+    var searchResults: [GameModel] {
+        if searchText.isEmpty {
+            return self.presenter.games
+        } else {
+            return self.presenter.games.filter {
+                $0.name.lowercased().contains(searchText.lowercased())
+            }
+        }
+    }
+    
     var body: some View {
         ZStack {
+            if #available(iOS 15.0, *) {
+                Spacer().searchable(text: $searchText)
+            }
             if presenter.loadingState {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())
@@ -28,7 +42,7 @@ struct HomeView: View {
                 if self.presenter.games.count > 0 {
                     ScrollView {
                         LazyVGrid(columns: columns) {
-                            ForEach(self.presenter.games) { game in
+                            ForEach(searchResults) { game in
                                 self.presenter.linkBuilder(for: game.id) {
                                     GameItem(game: game)
                                 }
@@ -50,12 +64,12 @@ struct HomeView: View {
         .navigationBarItems(trailing: HStack {
             Button {} label: {
                 self.presenter.linkBuilder {
-                    Image(systemName: "heart.fill").font(.title2)
+                    Image(systemName: "heart.fill").font(.title2).foregroundColor(.white)
                 }
             }
             
             Button {showModalView = true} label: {
-                Image(systemName: "info.circle.fill").font(.title2)
+                Image(systemName: "info.circle.fill").font(.title2).foregroundColor(.white)
             }
             .sheet(isPresented: $showModalView) {
                 AboutView()

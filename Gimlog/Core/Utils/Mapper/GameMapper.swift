@@ -58,10 +58,10 @@ final class GameMapper {
     ) -> GameEntity {
         let entity = GameEntity()
         entity.id = gameModel.id
-        entity.name = gameModel.name ?? ""
-        entity.released = gameModel.released ?? ""
-        entity.backgroundImage = gameModel.backgroundImage ?? ""
-        entity.rating = gameModel.rating ?? 0.0
+        entity.name = gameModel.name
+        entity.released = gameModel.released
+        entity.backgroundImage = gameModel.backgroundImage
+        entity.rating = gameModel.rating
         return entity
     }
     

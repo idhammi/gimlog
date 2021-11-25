@@ -29,14 +29,14 @@ struct DetailView: View {
                 if let game = self.presenter.game {
                     ScrollView {
                         VStack {
-                            WebImage(url: URL(string: game.backgroundImage ?? ""))
+                            WebImage(url: URL(string: game.backgroundImage))
                                 .resizable()
                                 .transition(.fade(duration: 0.5))
                                 .aspectRatio(contentMode: .fit)
                             
                             Spacer(minLength: 20)
                             
-                            Text(game.name ?? "")
+                            Text(game.name)
                                 .foregroundColor(Color("BlackSoft"))
                                 .font(.system(size: 24))
                                 .bold()
@@ -65,7 +65,7 @@ struct DetailView: View {
                                         .bold()
                                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                     
-                                    Text("\(game.getRatingString()) ★")
+                                    Text("\(String(game.rating)) ★")
                                         .foregroundColor(Color("BlackSoft"))
                                         .font(.system(size: 16))
                                         .bold()
@@ -142,9 +142,9 @@ struct DetailView: View {
                 }
             } label: {
                 if self.presenter.isFavorite {
-                    Image(systemName: "heart.fill").font(.title2)
+                    Image(systemName: "heart.fill").font(.title2).foregroundColor(.white)
                 } else {
-                    Image(systemName: "heart").font(.title2)
+                    Image(systemName: "heart").font(.title2).foregroundColor(.white)
                 }
             }
         })

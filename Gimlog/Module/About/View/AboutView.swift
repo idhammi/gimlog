@@ -42,8 +42,7 @@ struct AboutView: View {
             .navigationBarItems(trailing: Button {
                 presentationMode.wrappedValue.dismiss()
             } label: {
-                Image(systemName: "x.circle.fill")
-                    .font(.title2)
+                Image(systemName: "x.circle.fill").font(.title2).foregroundColor(.white)
             })
         }
     }

@@ -14,41 +14,25 @@ struct GameModel: Equatable, Identifiable {
     }
     
     let id: Int
-    let name: String?
-    let released: String?
-    let backgroundImage: String?
-    let rating: Float?
+    let name: String
+    let released: String
+    let backgroundImage: String
+    let rating: Float
     var description: String?
     var developers: [DeveloperModel]?
     var publishers: [PublisherModel]?
     
-    func getRatingString() -> String {
-        if let rat = rating {
-            return String(rat)
-        } else {
-            return "-"
-        }
-    }
-    
     func getYearReleased() -> String {
-        if let year = released {
-            return String(year.prefix(4))
-        } else {
-            return "-"
-        }
+        String(released.prefix(4))
     }
     
     func getReleasedFormatted() -> String {
-        if let releaseDate = released {
-            let dateFormater = DateFormatter()
-            dateFormater.dateFormat = "yyyy-MM-dd"
-            let date = dateFormater.date(from: releaseDate)
-            dateFormater.dateFormat = "MMM dd, yyyy"
-            let timeStr = dateFormater.string(from: date!)
-            return timeStr
-        } else {
-            return "-"
-        }
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "yyyy-MM-dd"
+        let date = dateFormater.date(from: released)
+        dateFormater.dateFormat = "MMM dd, yyyy"
+        let timeStr = dateFormater.string(from: date!)
+        return timeStr
     }
     
     func getAllDevelopers() -> String? {

@@ -12,19 +12,18 @@ class HomePresenter: ObservableObject {
     
     private var cancellables: Set<AnyCancellable> = []
     private let router = HomeRouter()
-    private let homeUseCase: HomeUseCase
+    
+    @Inject private var useCase: HomeUseCase
     
     @Published var games: [GameModel] = []
     @Published var errorMessage: String = ""
     @Published var loadingState: Bool = false
     
-    init(homeUseCase: HomeUseCase) {
-        self.homeUseCase = homeUseCase
-    }
+    init() {}
     
     func getGames() {
         loadingState = true
-        homeUseCase.getGames()
+        useCase.getGames()
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -39,7 +38,7 @@ class HomePresenter: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func linkBuilder<Content: View>(
+    func linkToDetail<Content: View>(
         for gameId: Int,
         @ViewBuilder content: () -> Content
     ) -> some View {
@@ -47,7 +46,7 @@ class HomePresenter: ObservableObject {
             destination: router.makeDetailView(for: gameId)) { content() }
     }
     
-    func linkBuilder<Content: View>(
+    func linkToFavorite<Content: View>(
         @ViewBuilder content: () -> Content
     ) -> some View {
         NavigationLink(

@@ -29,7 +29,7 @@ struct FavoriteView: View {
                     ScrollView {
                         LazyVGrid(columns: columns) {
                             ForEach(self.presenter.games) { game in
-                                self.presenter.linkBuilder(for: game.id) {
+                                self.presenter.linkToDetail(for: game.id) {
                                     GameItem(game: game)
                                 }
                             }

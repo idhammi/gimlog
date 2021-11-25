@@ -11,21 +11,23 @@ import Combine
 class DetailPresenter: ObservableObject {
     
     private var cancellables: Set<AnyCancellable> = []
-    private let detailUseCase: DetailUseCase
+    private let gameId: Int
+    
+    @Inject private var useCase: DetailUseCase
     
     @Published var game: GameModel?
     @Published var errorMessage: String = ""
     @Published var loadingState: Bool = false
     @Published var isFavorite: Bool = false
     
-    init(detailUseCase: DetailUseCase) {
-        self.detailUseCase = detailUseCase
+    init(gameId: Int) {
+        self.gameId = gameId
     }
     
     func getGameDetail() {
         checkGameStatus()
         loadingState = true
-        detailUseCase.getGameDetail()
+        useCase.getGameDetail(gameId: gameId)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -41,7 +43,7 @@ class DetailPresenter: ObservableObject {
     }
     
     func addGameToFavorites(_ game: GameModel, complete: @escaping() -> Void) {
-        detailUseCase.addGameToFavorites(game: GameMapper.mapGameDomainToEntity(input: game))
+        useCase.addGameToFavorites(game: GameMapper.mapGameDomainToEntity(input: game))
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -57,7 +59,7 @@ class DetailPresenter: ObservableObject {
     }
     
     func deleteGameFromFavorites(complete: @escaping() -> Void) {
-        detailUseCase.deleteGameFromFavorites()
+        useCase.deleteGameFromFavorites(gameId: gameId)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -73,7 +75,7 @@ class DetailPresenter: ObservableObject {
     }
     
     func checkGameStatus() {
-        detailUseCase.checkGameStatus()
+        useCase.checkGameStatus(gameId: gameId)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 switch completion {

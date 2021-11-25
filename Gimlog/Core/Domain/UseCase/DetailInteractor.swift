@@ -10,27 +10,22 @@ import Combine
 
 protocol DetailUseCase {
     
-    func getGameDetail() -> AnyPublisher<GameModel, Error>
+    func getGameDetail(gameId: Int) -> AnyPublisher<GameModel, Error>
     func addGameToFavorites(game: GameEntity) -> AnyPublisher<Bool, Error>
-    func deleteGameFromFavorites() -> AnyPublisher<Bool, Error>
-    func checkGameStatus() -> AnyPublisher<Bool, Error>
+    func deleteGameFromFavorites(gameId: Int) -> AnyPublisher<Bool, Error>
+    func checkGameStatus(gameId: Int) -> AnyPublisher<Bool, Error>
     
 }
 
 class DetailInteractor: DetailUseCase {
     
     private let repository: GimlogRepositoryProtocol
-    private let gameId: Int
     
-    required init(
-        repository: GimlogRepositoryProtocol,
-        gameId: Int
-    ) {
+    required init(repository: GimlogRepositoryProtocol) {
         self.repository = repository
-        self.gameId = gameId
     }
     
-    func getGameDetail() -> AnyPublisher<GameModel, Error> {
+    func getGameDetail(gameId: Int) -> AnyPublisher<GameModel, Error> {
         return repository.getGameDetail(gameId: gameId)
     }
     
@@ -38,11 +33,11 @@ class DetailInteractor: DetailUseCase {
         return repository.addGameToFavorites(game: game)
     }
     
-    func deleteGameFromFavorites() -> AnyPublisher<Bool, Error> {
+    func deleteGameFromFavorites(gameId: Int) -> AnyPublisher<Bool, Error> {
         return repository.deleteGameFromFavorites(gameId: gameId)
     }
     
-    func checkGameStatus() -> AnyPublisher<Bool, Error> {
+    func checkGameStatus(gameId: Int) -> AnyPublisher<Bool, Error> {
         return repository.checkGameStatus(gameId: gameId)
     }
     

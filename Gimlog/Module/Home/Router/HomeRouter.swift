@@ -10,14 +10,12 @@ import SwiftUI
 class HomeRouter {
     
     func makeDetailView(for gameId: Int) -> some View {
-        let detailUseCase = Injection.init().provideDetail(gameId: gameId)
-        let presenter = DetailPresenter(detailUseCase: detailUseCase)
+        let presenter = DetailPresenter(gameId: gameId)
         return DetailView(presenter: presenter)
     }
     
     func makeFavoriteView() -> some View {
-        let favoriteUseCase = Injection.init().provideFavorite()
-        let presenter = FavoritePresenter(favoriteUseCase: favoriteUseCase)
+        let presenter = FavoritePresenter()
         return FavoriteView(presenter: presenter)
     }
     

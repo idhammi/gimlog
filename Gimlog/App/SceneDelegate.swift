@@ -20,13 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new
         // (see `application:configurationForConnectingSceneSession` instead).
         
-        let homeUseCase = Injection.init().provideHome()
-        
-        let homePresenter = HomePresenter(homeUseCase: homeUseCase)
+        let homePresenter = HomePresenter()
         
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
-            .environmentObject(homePresenter)
+        let contentView = ContentView().environmentObject(homePresenter)
         
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

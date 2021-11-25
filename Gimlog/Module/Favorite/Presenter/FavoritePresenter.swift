@@ -12,19 +12,18 @@ class FavoritePresenter: ObservableObject {
     
     private var cancellables: Set<AnyCancellable> = []
     private let router = FavoriteRouter()
-    private let favoriteUseCase: FavoriteUseCase
+    
+    @Inject private var useCase: FavoriteUseCase
     
     @Published var games: [GameModel] = []
     @Published var errorMessage: String = ""
     @Published var loadingState: Bool = false
     
-    init(favoriteUseCase: FavoriteUseCase) {
-        self.favoriteUseCase = favoriteUseCase
-    }
+    init() {}
     
     func getGamesFavorite() {
         loadingState = true
-        favoriteUseCase.getGamesFavorite()
+        useCase.getGamesFavorite()
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -39,7 +38,7 @@ class FavoritePresenter: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func linkBuilder<Content: View>(
+    func linkToDetail<Content: View>(
         for gameId: Int,
         @ViewBuilder content: () -> Content
     ) -> some View {

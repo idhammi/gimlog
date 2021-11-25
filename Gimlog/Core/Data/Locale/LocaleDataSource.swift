@@ -23,12 +23,8 @@ final class LocaleDataSource: NSObject {
     
     private let realm: Realm?
     
-    private init(realm: Realm?) {
+    init(realm: Realm?) {
         self.realm = realm
-    }
-    
-    static let sharedInstance: (Realm?) -> LocaleDataSource = { realmDatabase in
-        return LocaleDataSource(realm: realmDatabase)
     }
     
 }

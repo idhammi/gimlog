@@ -20,18 +20,12 @@ protocol GimlogRepositoryProtocol {
 
 final class GimlogRepository: NSObject {
     
-    typealias GimlogInstance = (LocaleDataSource, RemoteDataSource) -> GimlogRepository
-    
     fileprivate let remote: RemoteDataSource
     fileprivate let locale: LocaleDataSource
     
-    private init(locale: LocaleDataSource, remote: RemoteDataSource) {
+    init(locale: LocaleDataSource, remote: RemoteDataSource) {
         self.locale = locale
         self.remote = remote
-    }
-    
-    static let sharedInstance: GimlogInstance = { localeRepo, remoteRepo in
-        return GimlogRepository(locale: localeRepo, remote: remoteRepo)
     }
     
 }

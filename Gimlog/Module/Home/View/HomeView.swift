@@ -43,7 +43,7 @@ struct HomeView: View {
                     ScrollView {
                         LazyVGrid(columns: columns) {
                             ForEach(searchResults) { game in
-                                self.presenter.linkBuilder(for: game.id) {
+                                self.presenter.linkToDetail(for: game.id) {
                                     GameItem(game: game)
                                 }
                             }
@@ -63,7 +63,7 @@ struct HomeView: View {
         }
         .navigationBarItems(trailing: HStack {
             Button {} label: {
-                self.presenter.linkBuilder {
+                self.presenter.linkToFavorite {
                     Image(systemName: "heart.fill").font(.title2).foregroundColor(.white)
                 }
             }

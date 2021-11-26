@@ -43,7 +43,7 @@ class DetailPresenter: ObservableObject {
     }
     
     func addGameToFavorites(_ game: GameModel, complete: @escaping() -> Void) {
-        useCase.addGameToFavorites(game: GameMapper.mapGameDomainToEntity(input: game))
+        useCase.addGameToFavorites(game: game)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 switch completion {

@@ -13,7 +13,7 @@ protocol GimlogRepositoryProtocol {
     func getGames() -> AnyPublisher<[GameModel], Error>
     func getGameDetail(gameId: Int) -> AnyPublisher<GameModel, Error>
     func getGamesFavorite() -> AnyPublisher<[GameModel], Error>
-    func addGameToFavorites(game: GameEntity) -> AnyPublisher<Bool, Error>
+    func addGameToFavorites(game: GameModel) -> AnyPublisher<Bool, Error>
     func deleteGameFromFavorites(gameId: Int) -> AnyPublisher<Bool, Error>
     func checkGameStatus(gameId: Int) -> AnyPublisher<Bool, Error>
 }
@@ -50,8 +50,8 @@ extension GimlogRepository: GimlogRepositoryProtocol {
             .eraseToAnyPublisher()
     }
     
-    func addGameToFavorites(game: GameEntity) -> AnyPublisher<Bool, Error> {
-        return self.locale.addGame(from: game)
+    func addGameToFavorites(game: GameModel) -> AnyPublisher<Bool, Error> {
+        return self.locale.addGame(from: GameMapper.mapGameDomainToEntity(input: game))
             .eraseToAnyPublisher()
     }
     

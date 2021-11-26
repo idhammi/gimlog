@@ -32,6 +32,7 @@
 		B47BD31326F9C5AF00D095CE /* NavAppearanceModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47BD31226F9C5AF00D095CE /* NavAppearanceModifier.swift */; };
 		B48B5BE2274B2BD000578CF5 /* GameMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48B5BE1274B2BD000578CF5 /* GameMapper.swift */; };
 		B48E310526F47EBF00417C89 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B48E310426F47EBF00417C89 /* SDWebImageSwiftUI */; };
+		B4A7CCBB27504BCD006D9F0D /* Rawg-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B4A7CCBA27504BCD006D9F0D /* Rawg-Info.plist */; };
 		B4AF2A9C26F2DEBA000378B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF2A9B26F2DEBA000378B5 /* AppDelegate.swift */; };
 		B4AF2A9E26F2DEBA000378B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF2A9D26F2DEBA000378B5 /* SceneDelegate.swift */; };
 		B4AF2AA026F2DEBA000378B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF2A9F26F2DEBA000378B5 /* ContentView.swift */; };
@@ -67,6 +68,7 @@
 		B46D7747274CD97D00CDE007 /* FavoriteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInteractor.swift; sourceTree = "<group>"; };
 		B47BD31226F9C5AF00D095CE /* NavAppearanceModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavAppearanceModifier.swift; sourceTree = "<group>"; };
 		B48B5BE1274B2BD000578CF5 /* GameMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMapper.swift; sourceTree = "<group>"; };
+		B4A7CCBA27504BCD006D9F0D /* Rawg-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Rawg-Info.plist"; sourceTree = "<group>"; };
 		B4AF2A9826F2DEBA000378B5 /* Gimlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gimlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AF2A9B26F2DEBA000378B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4AF2A9D26F2DEBA000378B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				B4AF2AA626F2DEBD000378B5 /* LaunchScreen.storyboard */,
 				B4AF2AA926F2DEBD000378B5 /* Info.plist */,
 				B41CB30826FB595300007922 /* .swiftlint.yml */,
+				B4A7CCBA27504BCD006D9F0D /* Rawg-Info.plist */,
 			);
 			path = Gimlog;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				B4AF2AA826F2DEBD000378B5 /* LaunchScreen.storyboard in Resources */,
 				B4AF2AA526F2DEBD000378B5 /* Preview Assets.xcassets in Resources */,
 				B4AF2AA226F2DEBD000378B5 /* Assets.xcassets in Resources */,
+				B4A7CCBB27504BCD006D9F0D /* Rawg-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

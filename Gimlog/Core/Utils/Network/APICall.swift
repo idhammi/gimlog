@@ -10,8 +10,20 @@ import Foundation
 struct API {
     
     static let baseUrl = "https://api.rawg.io/api"
-    static let apiKey = "5812fa28905c43af81a543cacd12a74b"
     
+    private static func getApiKey() -> String {
+        guard let filePath = Bundle.main.path(forResource: "Rawg-Info", ofType: "plist") else {
+            fatalError("Couldn't find file 'Rawg-Info.plist'.")
+        }
+        
+        let plist = NSDictionary(contentsOfFile: filePath)
+        guard let value = plist?.object(forKey: "API_KEY") as? String else {
+            fatalError("Couldn't find key 'API_KEY' in 'Rawg-Info.plist'.")
+        }
+        return value
+    }
+    
+    static let params: [String: Any] = ["key": getApiKey()]
 }
 
 struct Endpoints {

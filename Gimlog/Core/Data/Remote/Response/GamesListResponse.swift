@@ -5,8 +5,6 @@
 //  Created by Idham on 16/09/21.
 //
 
-import Foundation
-
 struct GamesResponse: Decodable {
     let count: Int
     let results: [GameResponse]

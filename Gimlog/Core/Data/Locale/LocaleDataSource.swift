@@ -5,7 +5,6 @@
 //  Created by Idham on 19/11/21.
 //
 
-import Foundation
 import RealmSwift
 import Combine
 import MapKit

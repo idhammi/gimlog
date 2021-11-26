@@ -5,7 +5,6 @@
 //  Created by Idham on 23/11/21.
 //
 
-import Foundation
 import Combine
 
 protocol DetailUseCase {

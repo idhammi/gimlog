@@ -25,10 +25,9 @@ final class RemoteDataSource: NSObject {
 extension RemoteDataSource: RemoteDataSourceProtocol {
     
     func getGames() -> AnyPublisher<[GameResponse], Error> {
-        let params: [String: Any] = ["key": API.apiKey]
         return Future<[GameResponse], Error> { completion in
             if let url = URL(string: Endpoints.getGames()) {
-                AF.request(url, parameters: params)
+                AF.request(url, parameters: API.params)
                     .validate()
                     .responseDecodable(of: GamesResponse.self) { response in
                         switch response.result {
@@ -43,10 +42,9 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
     }
     
     func getGameDetail(gameId: Int) -> AnyPublisher<GameResponse, Error> {
-        let params: [String: Any] = ["key": API.apiKey]
         return Future<GameResponse, Error> { completion in
             if let url = URL(string: Endpoints.getGameDetail(gameId: gameId)) {
-                AF.request(url, parameters: params)
+                AF.request(url, parameters: API.params)
                     .validate()
                     .responseDecodable(of: GameResponse.self) { response in
                         switch response.result {

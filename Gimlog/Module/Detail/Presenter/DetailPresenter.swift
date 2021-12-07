@@ -33,6 +33,7 @@ class DetailPresenter: ObservableObject {
                 switch completion {
                 case .failure:
                     self.errorMessage = String(describing: completion)
+                    self.loadingState = false
                 case .finished:
                     self.loadingState = false
                 }

@@ -9,12 +9,10 @@ import Core
 
 public struct GamesTransformer<GameMapper: Mapper>: Mapper
 where
-GameMapper.Request == Int,
 GameMapper.Response == GameResponse,
 GameMapper.Entity == GameEntity,
 GameMapper.Domain == GameModel {
     
-    public typealias Request = Int
     public typealias Response = [GameResponse]
     public typealias Entity = [GameEntity]
     public typealias Domain = [GameModel]
@@ -25,9 +23,9 @@ GameMapper.Domain == GameModel {
         _gameMapper = gameMapper
     }
     
-    public func transformResponseToEntity(request: Int?, response: [GameResponse]) -> [GameEntity] {
+    public func transformResponseToEntity(response: [GameResponse]) -> [GameEntity] {
         return response.map { result in
-            _gameMapper.transformResponseToEntity(request: request, response: result)
+            _gameMapper.transformResponseToEntity(response: result)
         }
     }
     

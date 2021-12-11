@@ -22,7 +22,6 @@ public struct GetGameRemoteDataSource : DataSource {
     }
     
     public func execute(request: Request?) -> AnyPublisher<Response, Error> {
-        
         return Future<GameResponse, Error> { completion in
             
             guard let request = request else { return completion(.failure(URLError.invalidRequest)) }

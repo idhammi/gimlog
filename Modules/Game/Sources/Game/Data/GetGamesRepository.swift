@@ -17,7 +17,6 @@ GameLocalDataSource.Request == Int,
 GameLocalDataSource.Response == GameEntity,
 RemoteDataSource.Request == [String: String],
 RemoteDataSource.Response == [GameResponse],
-Transformer.Request == Int,
 Transformer.Response == [GameResponse],
 Transformer.Entity == [GameEntity],
 Transformer.Domain == [GameModel] {
@@ -43,7 +42,7 @@ Transformer.Domain == [GameModel] {
             .flatMap { result -> AnyPublisher<[GameModel], Error> in
                 if result.isEmpty {
                     return _remoteDataSource.execute(request: request)
-                        .map { _mapper.transformResponseToEntity(request: nil, response: $0) }
+                        .map { _mapper.transformResponseToEntity(response: $0) }
                         .catch { _ in _localeDataSource.list(request: nil) }
                         .flatMap {  _localeDataSource.add(entities: $0) }
                         .filter { $0 }

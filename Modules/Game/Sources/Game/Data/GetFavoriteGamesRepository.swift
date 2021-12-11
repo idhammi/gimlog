@@ -14,7 +14,6 @@ public struct GetFavoriteGamesRepository<
 where
 GameLocaleDataSource.Request == Int,
 GameLocaleDataSource.Response == GameEntity,
-Transformer.Request == Int,
 Transformer.Response == [GameResponse],
 Transformer.Entity == [GameEntity],
 Transformer.Domain == [GameModel] {

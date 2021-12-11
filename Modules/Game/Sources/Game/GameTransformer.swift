@@ -10,14 +10,13 @@ import RealmSwift
 
 public struct GameTransformer: Mapper {
     
-    public typealias Request = Int
     public typealias Response = GameResponse
     public typealias Entity = GameEntity
     public typealias Domain = GameModel
     
     public init() { }
     
-    public func transformResponseToEntity(request: Int?, response: GameResponse) -> GameEntity {
+    public func transformResponseToEntity(response: GameResponse) -> GameEntity {
         let entity = GameEntity()
         entity.id = response.id ?? 0
         entity.name = response.name ?? "-"
@@ -66,7 +65,7 @@ public struct GameTransformer: Mapper {
         return entities
     }
     
-    public func devEntitiesToDomains(entities: List<DeveloperEntity>) -> [DeveloperModel] {
+    func devEntitiesToDomains(entities: List<DeveloperEntity>) -> [DeveloperModel] {
         return entities.map { result in
             return DeveloperModel(
                 id: result.id,
@@ -75,7 +74,7 @@ public struct GameTransformer: Mapper {
         }
     }
     
-    public func pubEntitiesToDomains(entities: List<PublisherEntity>) -> [PublisherModel] {
+    func pubEntitiesToDomains(entities: List<PublisherEntity>) -> [PublisherModel] {
         return entities.map { result in
             return PublisherModel(
                 id: result.id,

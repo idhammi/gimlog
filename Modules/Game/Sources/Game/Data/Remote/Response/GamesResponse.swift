@@ -22,7 +22,7 @@ public struct GameResponse: Decodable {
         case publishers
     }
     
-    let id: Int?
+    let id: Int
     let name: String?
     let released: String?
     let backgroundImage: String?
@@ -40,4 +40,25 @@ public struct DeveloperResponse: Decodable {
 public struct PublisherResponse: Decodable {
     let id: Int?
     let name: String?
+}
+
+extension GameResponse {
+    
+    public static var mockGames: [GameResponse] {
+        return [GameResponse.mockGame]
+    }
+    
+    public static var mockGame: GameResponse {
+        
+        GameResponse(id: 1,
+                     name: "Name",
+                     released: "11-12-2021",
+                     backgroundImage: "image.png",
+                     rating: 5.0,
+                     description: nil,
+                     developers: nil,
+                     publishers: nil)
+        
+    }
+    
 }

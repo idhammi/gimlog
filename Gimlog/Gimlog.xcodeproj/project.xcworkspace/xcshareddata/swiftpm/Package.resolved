@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "Alamofire",
-        "repositoryURL": "https://github.com/Alamofire/Alamofire",
-        "state": {
-          "branch": null,
-          "revision": "d120af1e8638c7da36c8481fd61a66c0c08dc4fc",
-          "version": "5.4.4"
-        }
-      },
-      {
         "package": "AlertToast",
         "repositoryURL": "https://github.com/elai950/AlertToast.git",
         "state": {
@@ -42,7 +33,7 @@
         "repositoryURL": "https://github.com/idhammi/gimlog-core",
         "state": {
           "branch": "main",
-          "revision": "2b7fd1183629e8615d37a4d4261ee0d7eac75eeb",
+          "revision": "469ff6d70a7a789313e3b70d21ca1a3b291dedcb",
           "version": null
         }
       },
@@ -53,15 +44,6 @@
           "branch": null,
           "revision": "c93f16c25af5770f0d3e6af27c9634640946b068",
           "version": "9.2.1"
-        }
-      },
-      {
-        "package": "Realm",
-        "repositoryURL": "https://github.com/realm/realm-cocoa",
-        "state": {
-          "branch": null,
-          "revision": "bdbbd57f411a0f4e72b359113dbc6d23fdf96680",
-          "version": "10.20.0"
         }
       },
       {

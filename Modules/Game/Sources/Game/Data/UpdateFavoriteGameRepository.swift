@@ -30,7 +30,9 @@ Transformer.Domain == GameModel {
     }
     
     public func execute(request: Int?) -> AnyPublisher<GameModel, Error> {
-        return _localeDataSource.get(id: request ?? -1)
+        guard let request = request else { fatalError("Request cannot be empty") }
+        
+        return _localeDataSource.get(id: request)
             .map { _mapper.transformEntityToDomain(entity: $0) }
             .eraseToAnyPublisher()
     }

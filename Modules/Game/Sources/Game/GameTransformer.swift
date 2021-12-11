@@ -18,7 +18,7 @@ public struct GameTransformer: Mapper {
     
     public func transformResponseToEntity(response: GameResponse) -> GameEntity {
         let entity = GameEntity()
-        entity.id = response.id ?? 0
+        entity.id = response.id
         entity.name = response.name ?? "-"
         entity.released = response.released ?? "-"
         entity.backgroundImage = response.backgroundImage ?? "-"

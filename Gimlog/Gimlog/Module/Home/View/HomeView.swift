@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Common
 import Core
 import Game
 
@@ -36,7 +37,7 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             if #available(iOS 15.0, *) {
-                Spacer().searchable(text: $searchText)
+                Spacer().searchable(text: $searchText, prompt: LocalizedString.search)
             }
             if presenter.isLoading {
                 ProgressView()
@@ -54,7 +55,7 @@ struct HomeView: View {
                         }
                     }
                 } else {
-                    Text("Data not found").foregroundColor(Color("BlackSoft"))
+                    Text(LocalizedString.dataNotFound).foregroundColor(Color("BlackSoft"))
                 }
             }
         }

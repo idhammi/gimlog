@@ -8,6 +8,7 @@
 import SwiftUI
 import SDWebImageSwiftUI
 import AlertToast
+import Common
 import Core
 import Game
 
@@ -54,12 +55,12 @@ struct DetailView: View {
                             
                             Group {
                                 HStack(alignment: .top) {
-                                    Text("Release Date")
+                                    Text(LocalizedString.releaseDate)
                                         .foregroundColor(.white)
                                         .font(.system(size: 14))
                                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                     
-                                    Text("Rating")
+                                    Text(LocalizedString.rating)
                                         .foregroundColor(.white)
                                         .font(.system(size: 14))
                                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
@@ -84,12 +85,12 @@ struct DetailView: View {
                                 Spacer(minLength: 8)
                                 
                                 HStack(alignment: .top) {
-                                    Text("Developer")
+                                    Text(LocalizedString.developer)
                                         .foregroundColor(.white)
                                         .font(.system(size: 14))
                                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                     
-                                    Text("Publisher")
+                                    Text(LocalizedString.publisher)
                                         .foregroundColor(.white)
                                         .font(.system(size: 14))
                                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
@@ -114,7 +115,7 @@ struct DetailView: View {
                             
                             Spacer(minLength: 20)
                             
-                            Text("About")
+                            Text(LocalizedString.about)
                                 .foregroundColor(.white)
                                 .font(.system(size: 18))
                                 .bold()
@@ -131,7 +132,7 @@ struct DetailView: View {
                         }
                     }
                 } else {
-                    Text("Data not found").foregroundColor(Color("BlackSoft"))
+                    Text(LocalizedString.dataNotFound).foregroundColor(Color("BlackSoft"))
                 }
             }
         }
@@ -160,12 +161,12 @@ struct DetailView: View {
             self.presenter.getGame(request: request)
         }
         .toast(isPresenting: $showToastInserted, duration: 1) {
-            AlertToast(type: .complete(Color.green), title: "Added to favorites!")
+            AlertToast(type: .complete(Color.green), title: LocalizedString.addedToFavorites)
         }
         .toast(isPresenting: $showToastRemoved, duration: 1) {
             AlertToast(displayMode: .banner(.slide),
                        type: .systemImage("info.circle", Color.gray),
-                       title: "Removed from favorites")
+                       title: LocalizedString.removedFromFavorites)
         }
     }
 }

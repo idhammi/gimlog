@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Common
 
 struct AboutView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -15,7 +16,7 @@ struct AboutView: View {
                 Color(.orange)
                     .ignoresSafeArea()
                 VStack {
-                    Text("Created by")
+                    Text(LocalizedString.createdBy)
                         .foregroundColor(Color("BlackSoft"))
                         .padding(.top, 100)
                     
@@ -37,7 +38,7 @@ struct AboutView: View {
                         .padding(.top, 2)
                 }
             }
-            .navigationTitle("About")
+            .navigationTitle(LocalizedString.about)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button {
                 presentationMode.wrappedValue.dismiss()

@@ -17,6 +17,7 @@
 		B46D773F274C8AEF00CDE007 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D773E274C8AEF00CDE007 /* DetailView.swift */; };
 		B46D7741274CD89700CDE007 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7740274CD89700CDE007 /* FavoriteView.swift */; };
 		B46D7746274CD8D000CDE007 /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7745274CD8D000CDE007 /* FavoriteRouter.swift */; };
+		B470DC0F276480FC0041B3B1 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = B470DC0E276480FC0041B3B1 /* Common */; };
 		B4749E38276386EE002C8547 /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4749E37276386EE002C8547 /* Inject.swift */; };
 		B4749E3A27639B81002C8547 /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4749E3927639B81002C8547 /* Dependency.swift */; };
 		B475C44B27040A9900C5E931 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = B475C44A27040A9900C5E931 /* AlertToast */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		B41CB30826FB595300007922 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B4297502274746C200C91992 /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
+		B458CCD9276479B800DC4889 /* Common */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Common; path = ../Modules/Common; sourceTree = "<group>"; };
 		B46D7732274C848700CDE007 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B46D7736274C867200CDE007 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		B46D773E274C8AEF00CDE007 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				B429750827478A9200C91992 /* Realm in Frameworks */,
 				B429750A27478A9200C91992 /* RealmSwift in Frameworks */,
 				B475C44B27040A9900C5E931 /* AlertToast in Frameworks */,
+				B470DC0F276480FC0041B3B1 /* Common in Frameworks */,
 				B4BF5F432760E2760039F117 /* Core in Frameworks */,
 				B4BF5F452760E27C0039F117 /* Game in Frameworks */,
 				B4B77F35274FE007003BAF14 /* Swinject in Frameworks */,
@@ -226,6 +229,7 @@
 		B4AF2A8F26F2DEBA000378B5 = {
 			isa = PBXGroup;
 			children = (
+				B458CCD9276479B800DC4889 /* Common */,
 				B4BF5F3F276086CD0039F117 /* Core */,
 				B4BF5F40276091BF0039F117 /* Game */,
 				B4AF2A9A26F2DEBA000378B5 /* Gimlog */,
@@ -307,6 +311,7 @@
 				B4B77F34274FE007003BAF14 /* Swinject */,
 				B4BF5F422760E2760039F117 /* Core */,
 				B4BF5F442760E27C0039F117 /* Game */,
+				B470DC0E276480FC0041B3B1 /* Common */,
 			);
 			productName = Gimlog;
 			productReference = B4AF2A9826F2DEBA000378B5 /* Gimlog.app */;
@@ -333,6 +338,7 @@
 			knownRegions = (
 				en,
 				Base,
+				id,
 			);
 			mainGroup = B4AF2A8F26F2DEBA000378B5;
 			packageReferences = (
@@ -427,6 +433,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -488,6 +495,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -662,6 +670,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B429750627478A9200C91992 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = RealmSwift;
+		};
+		B470DC0E276480FC0041B3B1 /* Common */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Common;
 		};
 		B475C44A27040A9900C5E931 /* AlertToast */ = {
 			isa = XCSwiftPackageProductDependency;

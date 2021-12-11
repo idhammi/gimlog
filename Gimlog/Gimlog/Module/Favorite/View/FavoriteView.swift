@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Common
 import Core
 import Game
 
@@ -40,11 +41,11 @@ struct FavoriteView: View {
                         }
                     }
                 } else {
-                    Text("Data not found").foregroundColor(Color("BlackSoft"))
+                    Text(LocalizedString.dataNotFound).foregroundColor(Color("BlackSoft"))
                 }
             }
         }
-        .navigationBarTitle(Text("Favorites"))
+        .navigationBarTitle(Text(LocalizedString.favorites))
         .navigationBarTitleDisplayMode(NavigationBarItem.TitleDisplayMode.inline)
         .onAppear {
             self.presenter.getList(request: nil)

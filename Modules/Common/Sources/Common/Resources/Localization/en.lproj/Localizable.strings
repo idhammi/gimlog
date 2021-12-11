@@ -5,7 +5,7 @@
 "rating" = "Rating";
 "developer" = "Developer";
 "publisher" = "Publisher";
-"added_to_favorites" = "Added to favorites!";
+"added_to_favorites" = "Added to\nfavorites!";
 "removed_from_favorites" = "Removed from favorites";
 "data_not_found" = "Data not found";
 "created_by" = "Created by";

@@ -38,6 +38,15 @@
         }
       },
       {
+        "package": "Core",
+        "repositoryURL": "https://github.com/idhammi/gimlog-core",
+        "state": {
+          "branch": "main",
+          "revision": "2b7fd1183629e8615d37a4d4261ee0d7eac75eeb",
+          "version": null
+        }
+      },
+      {
         "package": "Nimble",
         "repositoryURL": "https://github.com/Quick/Nimble.git",
         "state": {

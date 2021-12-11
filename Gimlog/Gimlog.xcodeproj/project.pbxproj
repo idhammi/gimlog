@@ -33,9 +33,9 @@
 		B4AF2AB626F2DF78000378B5 /* GameItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF2AB526F2DF78000378B5 /* GameItem.swift */; };
 		B4B77F35274FE007003BAF14 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = B4B77F34274FE007003BAF14 /* Swinject */; };
 		B4B77F37274FE089003BAF14 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B77F36274FE089003BAF14 /* Resolver.swift */; };
-		B4BF5F432760E2760039F117 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = B4BF5F422760E2760039F117 /* Core */; };
 		B4BF5F452760E27C0039F117 /* Game in Frameworks */ = {isa = PBXBuildFile; productRef = B4BF5F442760E27C0039F117 /* Game */; };
 		B4F5B79F26F8BCC40006E610 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5B79E26F8BCC40006E610 /* AboutView.swift */; };
+		B4F99C5A276498BC00CC5DEA /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = B4F99C59276498BC00CC5DEA /* Core */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +61,6 @@
 		B4AF2AA926F2DEBD000378B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4AF2AB526F2DF78000378B5 /* GameItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItem.swift; sourceTree = "<group>"; };
 		B4B77F36274FE089003BAF14 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
-		B4BF5F3F276086CD0039F117 /* Core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Core; path = ../Modules/Core; sourceTree = "<group>"; };
 		B4BF5F40276091BF0039F117 /* Game */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Game; path = ../Modules/Game; sourceTree = "<group>"; };
 		B4F5B79E26F8BCC40006E610 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,8 +75,8 @@
 				B429750827478A9200C91992 /* Realm in Frameworks */,
 				B429750A27478A9200C91992 /* RealmSwift in Frameworks */,
 				B475C44B27040A9900C5E931 /* AlertToast in Frameworks */,
+				B4F99C5A276498BC00CC5DEA /* Core in Frameworks */,
 				B470DC0F276480FC0041B3B1 /* Common in Frameworks */,
-				B4BF5F432760E2760039F117 /* Core in Frameworks */,
 				B4BF5F452760E27C0039F117 /* Game in Frameworks */,
 				B4B77F35274FE007003BAF14 /* Swinject in Frameworks */,
 			);
@@ -230,7 +229,6 @@
 			isa = PBXGroup;
 			children = (
 				B458CCD9276479B800DC4889 /* Common */,
-				B4BF5F3F276086CD0039F117 /* Core */,
 				B4BF5F40276091BF0039F117 /* Game */,
 				B4AF2A9A26F2DEBA000378B5 /* Gimlog */,
 				B4AF2A9926F2DEBA000378B5 /* Products */,
@@ -309,9 +307,9 @@
 				B429750727478A9200C91992 /* Realm */,
 				B429750927478A9200C91992 /* RealmSwift */,
 				B4B77F34274FE007003BAF14 /* Swinject */,
-				B4BF5F422760E2760039F117 /* Core */,
 				B4BF5F442760E27C0039F117 /* Game */,
 				B470DC0E276480FC0041B3B1 /* Common */,
+				B4F99C59276498BC00CC5DEA /* Core */,
 			);
 			productName = Gimlog;
 			productReference = B4AF2A9826F2DEBA000378B5 /* Gimlog.app */;
@@ -347,6 +345,7 @@
 				B42974FB274743B300C91992 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				B429750627478A9200C91992 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				B4B77F33274FE007003BAF14 /* XCRemoteSwiftPackageReference "Swinject" */,
+				B4F99C58276498BC00CC5DEA /* XCRemoteSwiftPackageReference "gimlog-core" */,
 			);
 			productRefGroup = B4AF2A9926F2DEBA000378B5 /* Products */;
 			projectDirPath = "";
@@ -653,6 +652,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		B4F99C58276498BC00CC5DEA /* XCRemoteSwiftPackageReference "gimlog-core" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/idhammi/gimlog-core";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -690,13 +697,14 @@
 			package = B4B77F33274FE007003BAF14 /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
 		};
-		B4BF5F422760E2760039F117 /* Core */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Core;
-		};
 		B4BF5F442760E27C0039F117 /* Game */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Game;
+		};
+		B4F99C59276498BC00CC5DEA /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B4F99C58276498BC00CC5DEA /* XCRemoteSwiftPackageReference "gimlog-core" */;
+			productName = Core;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

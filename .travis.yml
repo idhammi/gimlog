@@ -1,5 +1,0 @@
-language: swift
-osx_image: xcode13.1
-xcode_project: Gimlog.xcodeproj
-xcode_scheme: Gimlog
-xcode_destination: platform=iOS Simulator,OS=15.0,name=iPhone 11

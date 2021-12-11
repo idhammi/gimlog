@@ -15,4 +15,4 @@ jobs:
     - name: Build
       run: xcodebuild clean build -project "Gimlog/Gimlog.xcodeproj" -scheme "Gimlog" -destination "platform=iOS Simulator,name=iPhone 12 Pro,OS=latest" ONLY_ACTIVE_ARCH=YES
     - name: Run unit tests Game module
-      run: xcodebuild test -project "../Gimlog.xcodeproj" -scheme "Game" -destination "platform=iOS Simulator,name=iPhone 12 Pro,OS=latest"
+      run: xcodebuild test -project "Gimlog/Gimlog.xcodeproj" -scheme "Game" -destination "platform=iOS Simulator,name=iPhone 12 Pro,OS=latest"

@@ -8,7 +8,7 @@
 import XCTest
 import Nimble
 import Combine
-import Core
+import GimlogCore
 import Swinject
 @testable import Game
 

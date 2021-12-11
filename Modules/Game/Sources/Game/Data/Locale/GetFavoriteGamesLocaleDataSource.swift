@@ -5,7 +5,7 @@
 //  Created by Idham on 10/12/21.
 //
 
-import Core
+import GimlogCore
 import Combine
 import RealmSwift
 import Foundation

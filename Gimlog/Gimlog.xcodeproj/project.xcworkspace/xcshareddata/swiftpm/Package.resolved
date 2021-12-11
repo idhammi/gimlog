@@ -29,12 +29,12 @@
         }
       },
       {
-        "package": "Core",
-        "repositoryURL": "https://github.com/idhammi/gimlog-core",
+        "package": "GimlogCore",
+        "repositoryURL": "https://github.com/idhammi/GimlogCore",
         "state": {
-          "branch": "main",
-          "revision": "469ff6d70a7a789313e3b70d21ca1a3b291dedcb",
-          "version": null
+          "branch": null,
+          "revision": "d65d75a21a92fd78888e81f119eddd1bd834a8c8",
+          "version": "1.0.0"
         }
       },
       {

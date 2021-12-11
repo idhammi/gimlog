@@ -9,7 +9,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 import AlertToast
 import Common
-import Core
+import GimlogCore
 import Game
 
 struct DetailView: View {

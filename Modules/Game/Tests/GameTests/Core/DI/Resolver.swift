@@ -6,7 +6,7 @@
 //
 
 import Swinject
-import Core
+import GimlogCore
 @testable import Game
 
 class Resolver {

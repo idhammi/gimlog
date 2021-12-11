@@ -14,7 +14,7 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(name: "Realm", url: "https://github.com/realm/realm-cocoa.git", from: "5.5.1"),
+        .package(name: "Realm", url: "https://github.com/realm/realm-cocoa.git", from: "10.20.0"),
         .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.2.0")),
         .package(url: "https://github.com/Swinject/Swinject", .upToNextMajor(from: "2.8.1")),
         .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "9.2.1")),

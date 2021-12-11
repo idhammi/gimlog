@@ -14,7 +14,7 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(name: "Realm", url: "https://github.com/realm/realm-cocoa.git", from: "5.5.1")
+        .package(name: "Realm", url: "https://github.com/realm/realm-cocoa.git", from: "10.20.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.

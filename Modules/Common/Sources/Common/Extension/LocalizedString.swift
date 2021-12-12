@@ -9,6 +9,7 @@ import Foundation
 
 public struct LocalizedString {
     public static let search = "search".localized()
+    public static let cancel = "cancel".localized()
     public static let about = "about".localized()
     public static let favorites = "favorites".localized()
     public static let releaseDate = "release_date".localized()

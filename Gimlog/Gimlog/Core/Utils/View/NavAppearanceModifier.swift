@@ -22,9 +22,6 @@ struct NavAppearanceModifier: ViewModifier {
         if let tintColor = tintColor {
             UINavigationBar.appearance().tintColor = tintColor
         }
-        
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = tintColor
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = backgroundColor
     }
     
     func body(content: Content) -> some View {

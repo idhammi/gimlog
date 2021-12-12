@@ -5,7 +5,7 @@
 //  Created by Idham on 09/12/21.
 //
 
-import Core
+import GimlogCore
 import RealmSwift
 
 public struct GameTransformer: Mapper {

@@ -7,7 +7,7 @@
 
 import Swinject
 import RealmSwift
-import Core
+import GimlogCore
 import Game
 
 class AppAssembly: Assembly {

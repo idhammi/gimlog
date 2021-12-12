@@ -7,7 +7,7 @@
 
 import Foundation
 import Combine
-import Core
+import GimlogCore
 
 public class GamePresenter<GameUseCase: UseCase, FavoriteUseCase: UseCase>: ObservableObject
 where

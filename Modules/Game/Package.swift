@@ -1,4 +1,4 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.3
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -18,7 +18,7 @@ let package = Package(
         .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.2.0")),
         .package(url: "https://github.com/Swinject/Swinject", .upToNextMajor(from: "2.8.1")),
         .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "9.2.1")),
-        .package(url: "https://github.com/idhammi/gimlog-core", .upToNextMajor(from: "1.0.0"))
+        .package(url: "https://github.com/idhammi/GimlogCore", .upToNextMajor(from: "1.0.0"))
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -29,7 +29,7 @@ let package = Package(
                 .product(name: "RealmSwift", package: "Realm"),
                 "Alamofire",
                 "Swinject",
-                .product(name: "Core", package: "gimlog-core")
+                "GimlogCore"
             ]),
         .testTarget(
             name: "GameTests",

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Core
+import GimlogCore
 import Game
 
 struct ContentView: View {

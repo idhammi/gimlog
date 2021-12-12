@@ -3,7 +3,7 @@
     "pins": [
       {
         "package": "Alamofire",
-        "repositoryURL": "https://github.com/Alamofire/Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
         "state": {
           "branch": null,
           "revision": "d120af1e8638c7da36c8481fd61a66c0c08dc4fc",
@@ -38,12 +38,12 @@
         }
       },
       {
-        "package": "Core",
-        "repositoryURL": "https://github.com/idhammi/gimlog-core",
+        "package": "GimlogCore",
+        "repositoryURL": "https://github.com/idhammi/GimlogCore",
         "state": {
-          "branch": "main",
-          "revision": "2b7fd1183629e8615d37a4d4261ee0d7eac75eeb",
-          "version": null
+          "branch": null,
+          "revision": "d65d75a21a92fd78888e81f119eddd1bd834a8c8",
+          "version": "1.0.0"
         }
       },
       {
@@ -57,7 +57,7 @@
       },
       {
         "package": "Realm",
-        "repositoryURL": "https://github.com/realm/realm-cocoa",
+        "repositoryURL": "https://github.com/realm/realm-cocoa.git",
         "state": {
           "branch": null,
           "revision": "bdbbd57f411a0f4e72b359113dbc6d23fdf96680",

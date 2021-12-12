@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Common
-import Core
+import GimlogCore
 import Game
 
 struct HomeView: View {
@@ -36,9 +36,9 @@ struct HomeView: View {
     
     var body: some View {
         ZStack {
-            if #available(iOS 15.0, *) {
-                Spacer().searchable(text: $searchText, prompt: LocalizedString.search)
-            }
+//            if #available(iOS 15.0, *) {
+//                Spacer().searchable(text: $searchText, prompt: LocalizedString.search)
+//            }
             if presenter.isLoading {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())

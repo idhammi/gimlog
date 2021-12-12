@@ -5,7 +5,7 @@
 //  Created by Idham on 11/12/21.
 //
 
-import Core
+import GimlogCore
 import Combine
 import Game
 import Foundation

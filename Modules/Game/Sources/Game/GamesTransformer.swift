@@ -5,7 +5,7 @@
 //  Created by Idham on 08/12/21.
 //
 
-import Core
+import GimlogCore
 
 public struct GamesTransformer<GameMapper: Mapper>: Mapper
 where

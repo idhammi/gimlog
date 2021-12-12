@@ -7,7 +7,7 @@
 
 import UIKit
 import SwiftUI
-import Core
+import GimlogCore
 import Game
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

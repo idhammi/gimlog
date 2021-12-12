@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Common
-import Core
+import GimlogCore
 import Game
 
 struct FavoriteView: View {

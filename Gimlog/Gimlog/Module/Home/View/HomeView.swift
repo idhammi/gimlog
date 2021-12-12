@@ -49,7 +49,7 @@ struct HomeView: View {
                         LazyVGrid(columns: columns) {
                             ForEach(searchResults) { game in
                                 linkToDetail(for: game.id) {
-                                    GameItem(game: game)
+                                    GameItem(game: game).resignKeyboardOnDragGesture()
                                 }
                             }
                         }
@@ -111,7 +111,7 @@ extension HomeView {
             
             if showCancelButton {
                 Button(LocalizedString.cancel) {
-                    UIApplication.shared.endEditing(true) // this must be placed before the other commands here
+                    UIApplication.shared.endEditing(true)
                     self.searchText = ""
                     self.showCancelButton = false
                 }
